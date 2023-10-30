@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour
 
     private float movementX = 0;
     private float movementY = 0;
+
+    [SerializeField] GameObject bullet;
+    public const int ATTACK_CD = 1;
+    public double cdStartTime = 0;
+    public static bool attack = false;
+
     void Start()
     {
         transform.position = Vector3.zero;
@@ -27,4 +33,10 @@ public class PlayerController : MonoBehaviour
         movementX = v.x;
         movementY = v.y;
     }
+
+    void OnAttack(InputValue value)
+    {
+        Instantiate(bullet, transform.position, transform.rotation);
+    }
+
 }
