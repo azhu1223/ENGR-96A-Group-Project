@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     private float movementX = 0;
     private float movementY = 0;
+    [SerializeField] GameObject bullet;
     void Start()
     {
         transform.position = Vector3.zero;
@@ -26,5 +27,10 @@ public class PlayerController : MonoBehaviour
 
         movementX = v.x;
         movementY = v.y;
+    }
+
+    void OnFire(InputValue value)
+    {
+        Instantiate(bullet, transform.position, transform.rotation);
     }
 }
